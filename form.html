@@ -186,6 +186,7 @@
             var price = 0;
             var ser = document.getElementsByName("inlineRadioOptions");
             var servic = "";
+            var lvl = "";
             for (i = 0; i < ser.length; i++) {
                 if (ser[i].checked) {
                     if (i == 0) {
@@ -204,12 +205,17 @@
             }
             if (document.getElementById("lvl").selectedIndex == 1) {
                 price += 20;
+                lvl = "Beginner";
             }
             else if (document.getElementById("lvl").selectedIndex == 2) {
                 price += 30;
+                lvl = "Intermediate";
             }
-            else price += 40;
-            var output = "Name: " + name + "\n" + "Service: " + servic + "\n" + "Total price: $" + price;
+            else {
+                price += 40;
+                lvl = "Advanced";
+            }
+            var output = "Name: " + name + "\n" + "Service: " + servic + "\n" + "Level: " + lvl + "\n\n" + "Total price: $" + price;
             document.getElementById("summary").value = output;
         }
     </script>
